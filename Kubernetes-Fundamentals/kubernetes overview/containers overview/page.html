@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Containers overview</title>
+</head><body><div style="text-align: center"><span style="color: #0000ff"><span style="font-size: 31pt">Cosa è Kubernetes (o k8s)?</span></span></div><br/>
+<br/>
+<b>Pronuncia: Kubernetis</b><br/>
+<br/>
+E' un <b><i>Container Orchestrator</i></b>, creato inizialmente dalla Google,<br/>
+poi spostatosi su un'altra casa.<br/>
+<br/>
+Per comprendere Kubernetes, dobbiamo prima comprendere<br/>
+due elementi fondamentali:<br/>
+<b><span style="color: #0000ff">Container + Orchestration</span></b><span style="color: #0000ff">&nbsp;</span><br/>
+<hr/><hr/><br/>
+<div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff"><b>Containers</b></span></span></div><br/>
+<br/>
+<br/>
+Prima domanda: <b><u>perché abbiamo bisogno dei containers?</u></b><br/>
+Facciamo un esempio con un insieme di tecnologie da unire per un progetto,<br/>
+come <b>Node Express, MongoDB, Redis ed Ansible.</b><br/>
+<img src="1.png" width="950" height="471" /><br/>
+<br/>
+<b><u>Che problemi sorgono in generale?</u></b><br/>
+In primis: queste tecnologie devono essere <i><b>TUTTE compatibili</b></i><br/>
+<b><i>con il Sistema Operativo</i></b>&nbsp;che vogliamo usare.<br/>
+Nel peggiore dei casi, devi affidarti a sistemi più vecchi o aggiornare<br/>
+quelli che già hai.<br/>
+<br/>
+<b><u>In secondo punto:</u></b><br/>
+dobbiamo controllare le <b><i>dipendenze sul Sistema Operativo<br/>
+</i></b><b><i>e le Librerie</i></b>&nbsp;necessarie a questi strumenti per far funzionare<br/>
+tutte le tecnologie.<br/>
+<b>Ad esempio: </b>un tool può aver necessità di una <i>versione</i>&nbsp;di una libreria,<br/>
+un altro potrebbe necessitare di una <i>versione successiva o precedente</i><br/>
+di quella libreria!<br/>
+<br/>
+<b><u>Terzo punto:</u></b><br/>
+possiamo aver necessità di aggiornare gli strumenti,<br/>
+come MongoDB oppure Node Express.<br/>
+<i>Quando succede, dobbiamo controllare OGNI VOLTA se<br/>
+vi sono problemi con OS, Librerie o Dipendenze.<br/>
+<br/>
+<br/>
+</i>Tutto questo macello crea una situazione chiamata<br/>
+"The Matrix from Hell!"<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+<b>Inoltre, quando vi sono nuovi developer,<br/>
+</b><b>sorgono problemi di tutti i tipi:</b><br/>
+OS differenti, tempi di setup grandi<br/>
+e differenti dipendenze/compatibilità<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<b>Con un primo approccio, è possibile usare usare</b>&nbsp;<b><span style="color: #0000ff">Docker</span></b>:<br/>
+con Docker è possibile runnare ogni componente,<br/>
+con le proprie dipendenze e librerie necessarie,<br/>
+tutte sulla stessa Virtual Machine ed OS<br/>
+ma con i <i>container separati</i>.<br/>
+<br/>
+Basta configurare una volta Docker e tutti gli altri developer<br/>
+possono usare Docker per ottenere la stessa configurazione.<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Ora la domanda: cosa sono i <b><span style="color: #0000ff">Container</span></b>?<br/>
+I container sono <b><i>ambienti completamente isolati</i></b>.<br/>
+Possono avere degli elementi propri ciascuno, come:<ul><li>Processi</li>
+<li>Servizi</li>
+<li>Interfacce di rete</li>
+<li>Mount points</li>
+</ul>
+<br/>
+Proprio come delle macchine virtuali!<br/>
+<br/>
+L'unica cosa in comune è lo stesso <b><i>kernel di sistema operativo</i></b>.<br/>
+<img src="1 5.png" /><br/>
+<br/>
+I container non sono un qualcosa di nuovo per Docker.<br/>
+I container in Docker esistono da più di 10 anni,<br/>
+come quelli:<ul><li>LXC&#09;(LinuX Container)</li>
+<li>LXD &#09;(LinuX container Daemon)</li>
+<li>LXCFS&#09;(LinuX Container FUSE filesystem)</li>
+</ul>
+<br/>
+<br/>
+Docker usa container LXC.<br/>
+Settare l'enviroment dei container LXC è difficile,<br/>
+essendo molto a low-level.<br/>
+Per questo, Docker offre dei <b>tool ad high-level,<br/>
+</b><b>con molte powerful functions, </b>al fine di rendere<br/>
+l'operazione più semplice.<br/>
+<hr/><hr/><br/>
+<div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff"><b>Sistemi Operativi</b></span></span></div><br/>
+<br/>
+Per capire come funziona Docker,<br/>
+ripassiamo delle basi dei sistemi operativi.<br/>
+<br/>
+Nell'esempio di questi sistemi Linux<br/>
+(Ubuntu, Fedora, OpenSUSE, CentOS)<br/>
+consistono tutti di 2 elementi:<ul><li>OS Kernel</li>
+<li>Software</li>
+</ul>
+<br/>
+Un <b><span style="color: #0000ff">Kernel</span></b>&nbsp;è responsabile della gestione degli elementi hardware<br/>
+sottostanti, ed è comune a tutti questi sistemi operativi nel nostro caso<br/>
+(essendo basati tutti e 4 su Linux Kernel)<br/>
+<br/>
+Quello che rende questi sistemi operativi differenti è il <b><span style="color: #0000ff">Software</span></b><br/>
+presente al layer sovrastante.<br/>
+Software differenti potrebbero essere:<ul><li>User Interface</li>
+<li>Drivers</li>
+<li>Compilers</li>
+<li>File Managers</li>
+<li>Dev Tools etc.</li>
+</ul>
+<img src="1 6.png" /><br/>
+<br/>
+<br/>
+<br/>
+I container di Docker, come già detto, condividono lo stesso Kernel.<br/>
+<b>NB: Vedi l'immagine con Node Express, MongoDB, Redis e Ansible.</b><br/>
+<br/>
+Supponiamo di aver installato Docker su una macchina con Ubuntu.<br/>
+Docker può runnare sopra diversi OS, <b>a patto che girino sullo<br/>
+</b><b>&nbsp;lo stesso Kernel (nel caso precedente: Linux).<br/>
+<br/>
+</b><b>Esempio: </b>Se il sistema operativo sul quale si basa Docker è Ubuntu,<br/>
+Docker può runnare un container basato su un'altra distribuzione come<br/>
+Fedora, OpenSUSE, Debian o CentOS.<br/>
+<br/>
+7:00<br/>
+</body></html>
