@@ -3,40 +3,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Containers overview</title>
-</head><body><div style="text-align: center"><span style="color: #0000ff"><span style="font-size: 31pt">Cosa è Kubernetes (o k8s)?</span></span></div><br/>
+</head><body><div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff">Cosa è Kubernetes (o k8s)?</span></span></div><br/>
 <br/>
 <b>Pronuncia: Kubernetis</b><br/>
 <br/>
-E' un <b><i>Container Orchestrator</i></b>, creato inizialmente dalla Google,<br/>
+E' un <i><b>Container Orchestrator</b></i>, creato inizialmente dalla Google,<br/>
 poi spostatosi su un'altra casa.<br/>
 <br/>
 Per comprendere Kubernetes, dobbiamo prima comprendere<br/>
 due elementi fondamentali:<br/>
-<b><span style="color: #0000ff">Container + Orchestration</span></b><span style="color: #0000ff">&nbsp;</span><br/>
+<span style="color: #0000ff"><b>Container + Orchestration</b>&nbsp;</span><br/>
 <hr/><hr/><br/>
-<div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff"><b>Containers</b></span></span></div><br/>
+<b><span style="color: #0000ff"><span style="font-size: 31pt"><div style="text-align: center">Containers</div></span></span></b><br/>
 <br/>
 <br/>
-Prima domanda: <b><u>perché abbiamo bisogno dei containers?</u></b><br/>
+Prima domanda: <u><b>perché abbiamo bisogno dei containers?</b></u><br/>
 Facciamo un esempio con un insieme di tecnologie da unire per un progetto,<br/>
 come <b>Node Express, MongoDB, Redis ed Ansible.</b><br/>
 <img src="1.png" width="950" height="471" /><br/>
 <br/>
-<b><u>Che problemi sorgono in generale?</u></b><br/>
-In primis: queste tecnologie devono essere <i><b>TUTTE compatibili</b></i><br/>
-<b><i>con il Sistema Operativo</i></b>&nbsp;che vogliamo usare.<br/>
+<u><b>Che problemi sorgono in generale?</b></u><br/>
+In primis: queste tecnologie devono essere <b><i>TUTTE compatibili</i></b><br/>
+<i><b>con il Sistema Operativo</b></i>&nbsp;che vogliamo usare.<br/>
 Nel peggiore dei casi, devi affidarti a sistemi più vecchi o aggiornare<br/>
 quelli che già hai.<br/>
 <br/>
-<b><u>In secondo punto:</u></b><br/>
-dobbiamo controllare le <b><i>dipendenze sul Sistema Operativo<br/>
-</i></b><b><i>e le Librerie</i></b>&nbsp;necessarie a questi strumenti per far funzionare<br/>
+<u><b>In secondo punto:</b></u><br/>
+dobbiamo controllare le <i><b>dipendenze sul Sistema Operativo<br/>
+</b></i><i><b>e le Librerie</b></i>&nbsp;necessarie a questi strumenti per far funzionare<br/>
 tutte le tecnologie.<br/>
 <b>Ad esempio: </b>un tool può aver necessità di una <i>versione</i>&nbsp;di una libreria,<br/>
 un altro potrebbe necessitare di una <i>versione successiva o precedente</i><br/>
 di quella libreria!<br/>
 <br/>
-<b><u>Terzo punto:</u></b><br/>
+<u><b>Terzo punto:</b></u><br/>
 possiamo aver necessità di aggiornare gli strumenti,<br/>
 come MongoDB oppure Node Express.<br/>
 <i>Quando succede, dobbiamo controllare OGNI VOLTA se<br/>
@@ -57,7 +57,7 @@ e differenti dipendenze/compatibilità<br/>
 <br/>
 <br/>
 <br/>
-<b>Con un primo approccio, è possibile usare usare</b>&nbsp;<b><span style="color: #0000ff">Docker</span></b>:<br/>
+<b>Con un primo approccio, è possibile usare usare</b>&nbsp;<span style="color: #0000ff"><b>Docker</b></span>:<br/>
 con Docker è possibile runnare ogni componente,<br/>
 con le proprie dipendenze e librerie necessarie,<br/>
 tutte sulla stessa Virtual Machine ed OS<br/>
@@ -70,8 +70,8 @@ possono usare Docker per ottenere la stessa configurazione.<br/>
 <br/>
 <br/>
 <br/>
-Ora la domanda: cosa sono i <b><span style="color: #0000ff">Container</span></b>?<br/>
-I container sono <b><i>ambienti completamente isolati</i></b>.<br/>
+Ora la domanda: cosa sono i <span style="color: #0000ff"><b>Container</b></span>?<br/>
+I container sono <i><b>ambienti completamente isolati</b></i>.<br/>
 Possono avere degli elementi propri ciascuno, come:<ul><li>Processi</li>
 <li>Servizi</li>
 <li>Interfacce di rete</li>
@@ -80,7 +80,7 @@ Possono avere degli elementi propri ciascuno, come:<ul><li>Processi</li>
 <br/>
 Proprio come delle macchine virtuali!<br/>
 <br/>
-L'unica cosa in comune è lo stesso <b><i>kernel di sistema operativo</i></b>.<br/>
+L'unica cosa in comune è lo stesso <i><b>kernel di sistema operativo</b></i>.<br/>
 <img src="1 5.png" /><br/>
 <br/>
 I container non sono un qualcosa di nuovo per Docker.<br/>
@@ -98,7 +98,7 @@ Per questo, Docker offre dei <b>tool ad high-level,<br/>
 </b><b>con molte powerful functions, </b>al fine di rendere<br/>
 l'operazione più semplice.<br/>
 <hr/><hr/><br/>
-<div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff"><b>Sistemi Operativi</b></span></span></div><br/>
+<b><span style="color: #0000ff"><span style="font-size: 31pt"><div style="text-align: center">Sistemi Operativi</div></span></span></b><br/>
 <br/>
 Per capire come funziona Docker,<br/>
 ripassiamo delle basi dei sistemi operativi.<br/>
@@ -109,11 +109,11 @@ consistono tutti di 2 elementi:<ul><li>OS Kernel</li>
 <li>Software</li>
 </ul>
 <br/>
-Un <b><span style="color: #0000ff">Kernel</span></b>&nbsp;è responsabile della gestione degli elementi hardware<br/>
+Un <span style="color: #0000ff"><b>Kernel</b></span>&nbsp;è responsabile della gestione degli elementi hardware<br/>
 sottostanti, ed è comune a tutti questi sistemi operativi nel nostro caso<br/>
 (essendo basati tutti e 4 su Linux Kernel)<br/>
 <br/>
-Quello che rende questi sistemi operativi differenti è il <b><span style="color: #0000ff">Software</span></b><br/>
+Quello che rende questi sistemi operativi differenti è il <span style="color: #0000ff"><b>Software</b></span><br/>
 presente al layer sovrastante.<br/>
 Software differenti potrebbero essere:<ul><li>User Interface</li>
 <li>Drivers</li>
@@ -136,5 +136,91 @@ Docker può runnare sopra diversi OS, <b>a patto che girino sullo<br/>
 Docker può runnare un container basato su un'altra distribuzione come<br/>
 Fedora, OpenSUSE, Debian o CentOS.<br/>
 <br/>
-7:00<br/>
-</body></html>
+Ogni container in Docker ha solo il software addizionale.<br/>
+<br/>
+<b>NB: Non puoi runnare un SO differente come Windows di conseguenza,<br/>
+</b><b>se non ha lo stesso kernel di base (quadrante rosso)</b><br/>
+<img src="1 7.png" /><br/>
+<br/>
+<br/>
+<br/>
+<b>Quindi:</b>&nbsp;<b><u>non è uno svantaggio di Docker non poter runnare altri sistemi?</u></b><br/>
+La risposta è: <b><u>no</u></b>.<br/>
+Docker non è come Hyper-V, <i><b>non nasce per virtualizzare e runnare<br/>
+</b></i><i><b>sistemi operativi differenti sullo stesso hardware.<br/>
+<br/>
+</b></i>L'obiettivo di Docker è:<ul><li>Creare container per le applicazioni</li>
+<li>Runnare applicazioni in un container</li>
+<li>Shippare le applicazioni ad altre persone</li>
+</ul>
+<br/>
+<hr/><hr/><br/>
+<div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff"><b>Differenza tra Containers e Virtual Machines</b></span></span></div><br/>
+<br/>
+Dal lato Docker abbiamo:<ul><li>Prima hardware</li>
+<li>Poi l'OS</li>
+<li>Docker installato sull'OS</li>
+<li>Da qui, Docker gestisce i container con applicazioni, librerie e dipendenze</li>
+</ul>
+<br/>
+<br/>
+Nel caso delle VMs abbiamo:<ul><li>Prima l'hardware</li>
+<li>Poi l'OS</li>
+<li>Un HyperVisor (come VMWare ESX)</li>
+<li>Le Virtual Machine gestiste hanno applicazioni, librerie, dipendenze ed un OS proprio</li>
+</ul>
+<br/>
+Per queste differenze, le VM generalmente utilizzano più risorse<br/>
+e bootano in modo più lento.<br/>
+<br/>
+Inoltre, più risorse vi sono e meno isolamento vi sarà tra i<br/>
+container di Docker.<br/>
+D'altro canto, le VM possono essere tranquillamente indipendenti.<br/>
+<img src="1 8.png" /><br/>
+<br/>
+<br/>
+<hr/><hr/><br/>
+<div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff"><b>Come funziona Docker?</b></span></span></div><br/>
+<br/>
+<br/>
+Molte applicazioni hanno la propria versione disponibile<br/>
+come container da utilizzare su Docker.<br/>
+Queste applicazioni sono pubblicate su un registro pubblico<br/>
+Docker chiamato <b>"Docker Hub"</b>&nbsp;oppure <b>"Docker Store"<br/>
+</b><b><br/>
+</b><b>Esempio: </b>Puoi trovare le immagini di sistemi operativi, database<br/>
+ed applicativi utili. Una volta fatto ciò, installa Docker<br/>
+sulla tua macchina (attenzione al kernel!) <br/>
+Successivamente basta runnare il comando "<b>docker run</b>"<br/>
+con il nome dell'applicazione e creerà un container con l'applicazione<br/>
+da noi scelta.<br/>
+Puoi runnare più instanze dello stesso applicativo! (e.g. NodeJS)<br/>
+<br/>
+<b>NB:</b>&nbsp;è consigliabile avere un <b><i>load-balancer</i></b><i>, </i>in modo che se un container dello stack di NodeJS<br/>
+crasha o va distrutto, semplicemente il load-balancer lo sostituisce con<br/>
+un'altra instanza. Vi sono altre soluzioni ma verranno spiegate later.<br/>
+<img src="1 9.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+<div style="text-align: center"><span style="color: #0000ff"><b><span style="font-size: 31pt">Differenza tra Container vs Image</span></b></span></div><br/>
+<br/>
+<br/>
+Una Docker Image:<br/>
+E' un package o un template (come quello per le VM)<br/>
+Viene usato per <b><i>creare containers </i></b>a partire da una base utile.<br/>
+<img src="1 11.png" /><br/>
+<br/>
+<br/>
+<hr/><hr/><br/>
+<div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff"><b>Vantaggio di Docker</b></span></span></div><br/>
+<br/>
+<br/>
+<b>Prima:</b>&nbsp;un developer doveva consegnare l'intero progetto,<br/>
+con guida e tutte le dipendenze ed accortenze necessarie.<br/>
+<img src="1 10.png" width="750" height="361" /><br/>
+<br/>
+<br/>
+Ora: Il developer unisce l'applicativo con la configuration, creando una "Docker Image".<br/>
+Ora il cliente necessita solo di Docker per poterla scaricare ed eseguire!<br/>
+<img src="1 12.png" /></body></html>

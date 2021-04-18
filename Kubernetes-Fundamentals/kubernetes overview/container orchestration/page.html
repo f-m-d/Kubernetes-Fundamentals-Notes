@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Container Orchestration</title>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff">Container Orchestration</span></span></div></b><br/>
+<br/>
+<br/>
+Come abbiamo imparato dall'applicazione precedente,<br/>
+abbiamo imparato a creare la nostra applicazione su Docker,<br/>
+usando i container.<br/>
+<img src="1.png" /><br/>
+<br/>
+Ora cosa facciamo? Come gestiamo le cose in Production?<br/>
+Cosa fare se la nostra applicazione si basa su container,<br/>
+come DB o Messaging services, oppure altri servizi backend?<br/>
+<br/>
+E se il numero di utenti aumenta e devi scalare la tua applicazione?<br/>
+E se il numero di utenti diminuisce, come si scala down?<br/>
+<br/>
+<br/>
+Per gestire tutte queste opzioni, hai necessità di una piattaforma<br/>
+sovrastante, con il proprio set di risorse e permessi.<br/>
+<br/>
+Questa piattaforma deve "orchestrare" le <i><b>connessioni tra containers<br/>
+</b></i><i><b>e scalare in automatico up/down </b></i>(in base al carico)<i><b>.</b></i><br/>
+<br/>
+Questo processo di deployare in modo automatico e gestire i containers<br/>
+viene detto <b>"Container Orchestration"</b>.<br/>
+<img src="1 2.png" width="750" height="197" /><br/>
+<br/>
+<br/>
+Ecco alcuni "Container Orchestration" tools:<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+Nonostante <b>Docker Swarm</b>&nbsp;sia semplice da usare, manca<br/>
+di alcune features avanzate per le applicazioni più complesse.<br/>
+<br/>
+D'altro canto, <b>Mesos</b>&nbsp;è difficile da fare setup e da cominciare,<br/>
+ma supporta differenti opzioni avanzate.<br/>
+<br/>
+<b>Kubernetes</b>&nbsp;è un po' difficile da cominciare e da fare setup,<br/>
+ma provvede molte opzioni per customizzare i deployments,<br/>
+e supporta il deploy.<br/>
+<br/>
+Alcune caratteristiche buona di Kubernetes:<br/>
+E' supportato da alcuni Cloud Service pubblici<br/>
+come Azure, AWS, GCP.<br/>
+<br/>
+<hr/><hr/><br/>
+<div style="text-align: center"><span style="font-size: 31pt"><b><span style="color: #0000ff">Vantaggi della Container Orchestration</span></b></span></div><br/>
+<br/>
+<br/>
+<br/>
+<b>Ecco alcuni vantaggi della Container Orchestration:</b><br/>
+La tua applicazione rimane disponibile anche in caso<br/>
+di hardware down, perché abbiamo differenti<br/>
+instanze della tua applicazione che runnano su differenti nodi.<br/>
+<img src="1 4.png" />&nbsp;<br/>
+<br/>
+Il traffico è bilanciato attraverso i container:<br/>
+in questo modo se vi sono più richieste dell'applicativo,<br/>
+sono generate!<br/>
+<img src="1 5.png" width="750" height="284" /><br/>
+<br/>
+<br/>
+</body></html>
