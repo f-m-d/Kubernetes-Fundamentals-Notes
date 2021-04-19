@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Kubernetes Architecture</string>
+  <key>nodeid</key><string>289af767-0055-408f-85ae-232ff2f6a348</string>
+  <key>modified_time</key><integer>1618844739</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1618758419</integer>
+  <key>order</key><integer>2</integer>
+</dict>
+</node>

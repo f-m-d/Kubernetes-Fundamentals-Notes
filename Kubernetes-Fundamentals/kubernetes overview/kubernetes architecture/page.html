@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Kubernetes Architecture</title>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff">Concetti chiave di Kubernetes</span></span></div></b><br/>
+<br/>
+<br/>
+Speghiamo alcuni concetti chiave:<br/>
+<br/>
+<br/>
+<br/>
+<b>Nodo (vecchio slang: Minion):</b><br/>
+Macchina, fisica o virtualizzata, dove Kubernetes è installato.<br/>
+Il nodo è una macchina working, ovvero dove i containers<br/>
+verranno lanciati da Kubernetes.<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+Che succede se il nodo va down?<br/>
+Ovviamente l'applicazione va down.<br/>
+Per questo necessiti <i><b>più di un nodo</b></i>.<br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+Cluster:<br/>
+Un Cluster è un <i><b>insieme di nodi che lavorano assieme.</b></i><br/>
+In questo modo, anche se un nodo va in fail,<br/>
+l'applicazione rimane accessibile tramite altri nodi.<br/>
+Avere più nodi aiuta anche per il load-balancing.<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+<b>Master:</b><br/>
+Chi gestisce un Cluster?<br/>
+Dove sono salvate le informazioni dei membri di un cluster?<br/>
+Come sono monitorati i nodi?<br/>
+Quando un nodo fallisce, come muovi il suo workload da un node ad un altro?<br/>
+Il Master è un altro nodo con sopra Kubernetes, identificato come Master.<br/>
+Il Master Node monitora gli altri nodi del cluster ed è il responsabile per<br/>
+l'orchestrazione dei container nei worker nodes.<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+Quando installi Kubernetes su una macchina, installi le seguenti componenti:<ul><li>Un <b>API Server</b></li>
+<li>Il service "<b>etcd</b>"</li>
+<li>Il service "<b>kubelet</b>"</li>
+<li>Un <b>Container Runtime</b></li>
+<li>Un <b>Controller</b></li>
+<li>Degli <b>Schedulers</b></li>
+</ul>
+<b><br/>
+</b><img src="1 4.png" /><br/>
+<br/>
+<br/>
+<b><span style="color: #0000ff">API Server:</span></b><br/>
+<b>Fanno da frontend per Kubernetes.</b><br/>
+Gli utenti, i management devices, le CLIs (Command Line Interfaces)<br/>
+tutte parlano con le API Server per interagire con il cluster Kubernetes.<br/>
+<br/>
+<br/>
+<br/>
+<b><span style="color: #0000ff">etcd Key Store:</span></b><br/>
+<b>E' un store distribuito ed affidabile di elementi chiave-valore.</b><br/>
+Serve a salvarsi tutti i valori per gestire il cluster.<br/>
+Quando vi sono differenti Nodes e Masters nel tuo cluster,<br/>
+il servizio <i><b>etcd</b></i>&nbsp; conseva tutte le informazioni sui nodi in modo distribuito.<br/>
+etcd è responsabile dell'implementazioni di <i>locks</i>&nbsp;nel cluster,<br/>
+in modo da assicurarsi di non creare conflitti tra i Masters.<br/>
+<br/>
+<br/>
+<span style="color: #0000ff"><br/>
+</span><b><span style="color: #0000ff">Scheduler:</span><br/>
+E' responsabile per la distribuzione del lavoro o containers<br/>
+</b><b>su più nodi.</b><br/>
+Cerca container nuovi creati e li assegna ai nodi.<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<b><span style="color: #0000ff">Controller:</span><br/>
+Sono il "cervello" dietro l'orchestrazione.<br/>
+</b>Sono responsabili nel riconoscere e rispondere quando<br/>
+nodi, container o endpoints vanno down.<br/>
+I Controller decidono di creare nuovi container in questo caso.<br/>
+<br/>
+<br/>
+<br/>
+<b><span style="color: #0000ff">Container Runtime:</span></b><br/>
+<b>E' il software sottostante usato per runnare i containers.</b><br/>
+Nel nostro caso, Docker (anche se vi sono altri tool di containerizzazione).<br/>
+<br/>
+<br/>
+<br/>
+<b><span style="color: #0000ff">Kubelet:</span><br/>
+E' un agent che runna in ogni nodo del cluster.<br/>
+</b>L'agent è responsabile dei container, per fa si che runnino<br/>
+sui nodi come ci si aspetti.<br/>
+<hr/><hr/><br/>
+<div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff"><b>Master vs Worker nodes</b></span></span></div><br/>
+<br/>
+<br/>
+Fino ad ora, abbiamo visto 2 tipi di server.<br/>
+I <b>Master</b>&nbsp;ed i <b>Worker</b>&nbsp;sono alcune componenti che compongono Kubernetes.<br/>
+<b>Una domanda sorge spontanea: <u>come un server diventa Master o Slave?<br/>
+</u><u><br/>
+</u>Worker Node:<u><br/>
+</u></b>I Worker Node (o Minion) sono dove vengono hostati i container (e.g. Docker).<br/>
+Per runnare i container di Docker su un sistema, abbiamo la necessità<br/>
+di aver installato<b>&nbsp;Container Runtime (nel nostro caso, Docker oppure altri come Rocket or Cryo)</b>.<br/>
+<br/>
+<br/>
+Master Node:<br/>
+Il Master Node ha il <b><i>API Server</i></b>&nbsp;ed è questo che lo rende "Master".<br/>
+Il Worker Node ha il <b><i>Kubelet </i></b>&nbsp;agent, responsabile per l'interazione<br/>
+con il Master, al fine di provvedere informazioni al Master e<br/>
+per eseguire azioni del Master sui Worker Nodes.<br/>
+<br/>
+Tutte le informazioni ottenute sono conservate in una coppia<br/>
+<b><i>chiave-valore</i></b>&nbsp; nel Master (nel nostro caso in etcd) <br/>
+<br/>
+Inoltre, il Master ha anche il <b><i>Controller</i></b>&nbsp; e <b><i>Scheduler</i></b>.<br/>
+<br/>
+<hr/><hr/><div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff"></span></span></div><div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff"><b>Kubectl</b></span></span></div><br/>
+<br/>
+<br/>
+<b><i>Kubectl</i></b>&nbsp; (o Kube Control) è un Kubernetes <b><i>Command Line Tool</i></b>.<br/>
+Kubectl è usato per deployare e gestire applicazioni su un cluster Kubernetes.<br/>
+Questo tool serve per:<ul><li>Ottenere info sul cluster</li>
+<li>Status degli altri nodi del cluster</li>
+<li>Gestione di vari elementi</li>
+</ul>
+<br/>
+Esempio:<br/>
+Il comando <b>"run"</b>&nbsp;è usato per <b>deployare</b>&nbsp;un applicazione sul cluster.<br/>
+Il comando <b>"cluster-info"</b>&nbsp;è usato per ottenere <b>informazioni</b>&nbsp;sul cluster.<br/>
+Il comando <b>"get nodes"</b>&nbsp;è usato per ottenere tutti i nodi di un determinato cluster.<br/>
+<img src="1 5.png" /><br/>
+</body></html>
