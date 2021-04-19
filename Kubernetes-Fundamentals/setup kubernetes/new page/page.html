@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Kubernetes Setup - Introduction and
+Minikube</title>
+</head><body><b><div style="text-align: center"><span style="font-family: sf pro text"><span style="font-size: 31pt"><span style="color: #0000ff">Kubernetes Setup - Introduction and Minikube</span></span></span><span style="font-size: 31pt"><span style="color: #0000ff">&nbsp; </span></span></div></b><br/>
+<br/>
+<br/>
+<br/>
+Vi sono diversi modi per settare Kubernetes:<br/>
+<br/>
+<b>Locally:</b><br/>
+Tool come <b>Minikube, Microk8s, Kubeadm</b>.<br/>
+Sono utili per i developer o per chi vuole imparare Kubernetes.<br/>
+Kubeadm è usare per bootstrappare e gestire production grid,<br/>
+generalmente per gestire un multi-node setup.<br/>
+<br/>
+<br/>
+<b>Cloud:</b><br/>
+E' possibile effettuare soluzioni cloud per Kubernetes,<br/>
+come Google Cloud Platform, Amazon Web Services (AWS), Microsoft Azure, IBM Clouds etc.<br/>
+<br/>
+<br/>
+Altro:<br/>
+Nel nostro caso di corso, possiamo accedere ad un cluster già abilitato<br/>
+su <a href="www.kodekloud.com"><b>www.kodekloud.com</b></a><b>&nbsp;o <a href="play-with-k8s.com">play-with-k8s.com</a></b><br/>
+<img src="1.png" width="950" height="340" /><br/>
+<hr/><hr/><br/>
+<div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff"><b>Minikube</b></span></span></div><br/>
+<br/>
+<br/>
+Un esempio di installazione che facciamo è con <b><a href="https://minikube.sigs.k8s.io/docs/start/">Minikube</a></b>.<br/>
+Generalmente, impiega molto tempo installare tutte le componenti<br/>
+di Kubernetes su una macchina (etcd, API Server etc.)<br/>
+<br/>
+Minikube semplicemente unisce tutte le componenti<br/>
+di un nodo cluster di Kubernetes in una singola immagine,<br/>
+creando un singolo nodo per gestire un cluster.<br/>
+<br/>
+L'intero bundle è disponibile come un <b>ISO image</b><br/>
+ed è disponibile online per il download.<br/>
+<br/>
+Minikube provvede una executable command line utility,<br/>
+capace di scaricare automaticamente la ISO e di deployarla<br/>
+in una <b>Virtualization Platform</b>&nbsp;(VMWare, VirtualBox)<br/>
+NB: Devi avere Hyper-V abilitato sulla macchina per virtualizzare!<br/>
+<br/>
+Infine, per interagire col Kubernet cluster, necessiti<br/>
+della command line tool <b>kubectl</b>.<br/>
+<br/>
+<br/>
+In sintesi, necessiti di 3 cose:<ul><li>Hyper-V (per la virtualizzazione)</li>
+<li>Kubectl</li>
+<li>Minikube</li>
+</ul>
+<br/>
+<img src="1 2.png" /><br/>
+<br/>
+</body></html>
