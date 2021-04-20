@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Demo - Minikube</title>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff">Demo Minikube<br/>
+</span></span></div></b><br/>
+<br/>
+Un primo passo prima di utilizzare Minikube,<br/>
+bisogna installare <b>Kubectl</b>: lo useremo<br/>
+per amministrare i cluster dopo l'installazione.<br/>
+<a href="https://kubernetes.io/docs/tasks/tools/">https://kubernetes.io/docs/tasks/tools/</a><br/>
+<br/>
+NB: Possiamo aggiungerlo alla PATH del nostro OS, seguendo la giuda in allegato PDF.<br/>
+In questo modo possiamo chiamarlo ovunque nel terminale!<br/>
+<br/>
+<br/>
+Possiamo vedere la versione di kubectl con "kubectl version":<br/>
+La nostra è la 1.21<br/>
+<img src="1.png" /><br/>
+<hr/><hr/><br/>
+<br/>
+Ora, per installare Minikube, dobbiamo controllare la virtualizzazione<br/>
+del nostro computer (deve essere abilitata)<br/>
+<a href="https://minikube.sigs.k8s.io/docs/start/">https://minikube.sigs.k8s.io/docs/start/</a><br/>
+<br/>
+<br/>
+Per Windows, basta usare il comadon "systeminfo"<br/>
+e cercare la linea riguardo la Virtualizzazione:<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+Ora i passi di installazione sono questi:<ul><li>Avere Kubectl (già fatto)</li>
+<li>Avere un VM Manager (come VirtualBox, VMWare, KVM, virt-manager etc.)</li>
+<li>Alternativa a sopra: se hai già Docker!</li>
+</ul>
+<br/>
+Per di base, usiamo semplicemente <b>VirtualBox:</b><br/>
+basta installarlo sulla nostra macchina.<br/>
+<br/>
+<br/>
+Con Minikube possiamo scegliere di creare una VM,<br/>
+dove far girare il nostro cluster.<br/>
+<br/>
+<br/>
+<b>Ora possiamo finalmente scaricare Minikube ed installarlo!</b><br/>
+<br/>
+<br/>
+Una volta installato e tutto, avremo una utility da command line.<br/>
+Per installare il nostro cluster, dobbiamo usare il comando adatto<br/>
+per il nostro tipo di driver (nel nostro caso, VirtualBox)<br/>
+<a href="https://minikube.sigs.k8s.io/docs/drivers/">https://minikube.sigs.k8s.io/docs/drivers/<br/>
+<br/>
+</a><img src="1 3.png" /><br/>
+<br/>
+<br/>
+<br/>
+Il processo di installazione è questo:<ul><li>Scarica una ISO</li>
+<li>Questa ISO sarà usata per la VM</li>
+<li>Scarica Kubernetes e Docker</li>
+</ul>
+<br/>
+<br/>
+Una volta finita l'installazione, avremo una VM running su VirtualBox!<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+Ora per controllare il nosto cluster,<br/>
+possiamo usare il comando "minikube status":<br/>
+<img src="1 5.png" /><br/>
+<br/>
+<br/>
+<br/>
+Con kubectl possiamo ottenere tutti i nodi<br/>
+e sapere il loro stato e ruolo:<br/>
+<img src="1 6.png" /><br/>
+<br/>
+<br/>
+<br/>
+Ora testiamo con un applicativo di prova:<br/>
+NB: Trovi tutto qui <a href="https://minikube.sigs.k8s.io/docs/start/">https://minikube.sigs.k8s.io/docs/start/</a><br/>
+<img src="1 7.png" /><br/>
+<br/>
+<br/>
+Ora possiamo ottenere i deployments con kubectl get deployments:<br/>
+<img src="1 8.png" /><br/>
+<br/>
+<br/>
+Possiamo esporre il deployment:<br/>
+<img src="1 10.png" /><br/>
+<br/>
+<br/>
+Chiediamo per il servizio a kubectl:<br/>
+<img src="1 9.png" /><br/>
+<br/>
+Chiediamo per l'url del servizio:<br/>
+<img src="1 11.png" /><br/>
+<hr/><hr/><br/>
+Infine, cancelliamo i servizi ed il deployment:<br/>
+<img src="1 12.png" /><br/>
+<br/>
+<img src="1 13.png" /><br/>
+<br/>
+<br/>
+<img src="1 14.png" /><br/>
+<br/>
+<br/>
+<br/>
+</body></html>

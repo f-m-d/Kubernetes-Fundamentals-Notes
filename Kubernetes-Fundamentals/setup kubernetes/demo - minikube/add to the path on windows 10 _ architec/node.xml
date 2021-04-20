@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Add to the PATH on Windows 10 _ Architect Ryan.pdf</string>
+  <key>nodeid</key><string>a8c2c49e-525d-4d65-83a9-05ed8d891ccd</string>
+  <key>modified_time</key><integer>1618907539</integer>
+  <key>version</key><integer>6</integer>
+  <key>payload_filename</key><string>add to the path on windows 10 _ architec.pdf</string>
+  <key>content_type</key><string>application/pdf</string>
+  <key>created_time</key><integer>1618907539</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>
