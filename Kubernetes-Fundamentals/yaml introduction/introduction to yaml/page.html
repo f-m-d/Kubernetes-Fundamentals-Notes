@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Introduction to YAML</title>
+</head><body><b><div style="text-align: center"><span style="color: #0000ff"><span style="font-size: 31pt">Introduzione a YAML<br/>
+</span></span></div></b><br/>
+<br/>
+I file YAML sono una tipologia di file molto simili ad altri come JSON o XML:<br/>
+<img src="1.png" width="950" height="239" /><br/>
+<br/>
+<br/>
+Gli YAML file sono una tipologia di file utilizzati per rappresentare delle <b>configurazioni</b>.<br/>
+La tipologia utilizzata è un semplice "<b>chiave: valore"<br/>
+</b><b>NB: Dopo i due punti, deve esserci OBBLIGATORIAMENTE UNO SPAZIO!<br/>
+<br/>
+<br/>
+</b>Per indicare che un <b>elemento appartiene ad un array</b>, viene usato il<b>&nbsp;trattino "-"<br/>
+</b>Per indicare un<b>&nbsp;dizionario, bisogna indentare</b>&nbsp;(come in Python!)<br/>
+<img src="1 2.png" width="950" height="259" /><br/>
+<br/>
+<br/>
+NB: Il numero di spazi è essenziale!<br/>
+Nell'esempio: i due ultimi elementi, per via di uno spazio in più,<br/>
+vengono identificati come elementi sotto "Calories".<br/>
+Questo genera un errore perché "Calories" ha già un valore settato!<br/>
+<b>E' possibile settare 2 cose: un valore diretto o un hashmap.<br/>
+</b><img src="1 3.png" width="950" height="385" /><br/>
+<br/>
+<br/>
+<br/>
+Portiamo il tutto ad un new level:<br/>
+Fruits è un array di dizionari!<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+Speghiamo le differenze tra i vari elementi, come:<br/>
+Dizionari, Liste e Liste di Dizionari.<br/>
+<br/>
+<br/>
+1) <b>Quando vi sono delle proprietà da salvare</b>,<br/>
+Dizionario e perfino Dizionari nested vanno bene!<br/>
+<img src="1 5.png" width="900" height="278" /><br/>
+<br/>
+<br/>
+2) <b>Quando vi è solo una lista di cose da salvare</b>, senza proprietà,<br/>
+un Array è più consigliato.<br/>
+<img src="1 6.png" width="900" height="394" /><br/>
+<br/>
+<br/>
+<br/>
+Nel caso dobbiamo aggiungere dettagli, basta usare i dizionari!<br/>
+<img src="1 7.png" width="700" height="491" /><br/>
+<br/>
+<br/>
+<br/>
+Ecco alcune differenze chiave tra Dizionari ed Array:<br/>
+<img src="1 8.png" width="900" height="501" /><br/>
+<br/>
+<br/>
+</body></html>

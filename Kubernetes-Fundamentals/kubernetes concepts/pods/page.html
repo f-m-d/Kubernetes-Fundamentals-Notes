@@ -60,7 +60,7 @@ che stanno runnando al loro interno.<br/>
 Per scalare un'applicazione: <b>o crei più POD o di meno.</b><br/>
 <b>Non vai ad aggiungere più container dello stesso tipo nello stesso POD.<br/>
 <br/>
-</b><hr/><hr/><b></b><b><br/>
+</b><hr/><hr/><b><br/>
 </b>Cosa che si potrebbe fare è<b>&nbsp;aggiungere container diversi nello stesso POD.</b><br/>
 <br/>
 <b>Ad esempio: </b>Se un applicativo in Python necessita di un Container Helper particolare<br/>
@@ -70,4 +70,14 @@ per alcuni task. In questo caso, possiamo creare un POD con Python e l'Helper.<b
 come localhost.<br/>
 <img src="1 4.png" /><br/>
 <br/>
-4:40</body></html>
+<img src="1 5.png" /><br/>
+<hr/><hr/><br/>
+<b><span style="color: #0000ff"><div style="text-align: center"><span style="font-size: 31pt">Come deployare i PODs</span></div></span></b><br/>
+<br/>
+<br/>
+Il comando di <b>"kubectl run"</b>&nbsp;crea già un POD,<br/>
+dove crea un instanza del container scelto.<br/>
+Possiamo specificare l'opzione <b>"--image="</b>&nbsp;per indicare<br/>
+dove prendere l'immagine da inserire nel container<br/>
+(come su Docker Hub)<br/>
+<img src="1 6.png" /></body></html>

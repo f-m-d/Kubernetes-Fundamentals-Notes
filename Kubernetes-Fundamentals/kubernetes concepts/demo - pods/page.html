@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Demo - PODs</title>
+</head><body><b><div style="text-align: center"><span style="color: #0000ff"><span style="font-size: 31pt">Demo PODs</span></span></div></b><br/>
+<br/>
+<br/>
+In questa demo, mostriamo come creare e gestire i PODs.<br/>
+<br/>
+Possiamo usare <b>kubectl run</b>&nbsp;per creare un POD:<br/>
+Il nome possiamo sceglierno noi (il primo nginx),<br/>
+mentre il secondo deve essere ESATTAMENTE<br/>
+il nome dell'immagine sull'hub da scaricare.<br/>
+In alternativa, puoi specificare l'immagine da altre fonti.<br/>
+<img src="1.png" /><br/>
+<br/>
+Possiamo ottenere lo stato dei PODs con <b>"kubectl get pods"<br/>
+</b><img src="1 2.png" /><b><br/>
+</b><b><br/>
+<br/>
+</b>Possiamo ottenere informazioni su un pod "<b>kubectl describe pod</b>"<br/>
+Qui verranno mostrate informazioni vitali, ma anche altre come:<ul><li>I container usati nel POD</li>
+<li>Serie di eventi successi nel POD (creazioni di container, run, stop, etc.)<b></b></li>
+</ul>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+Altra serie di informazioni: tramite "<b>get pods</b>" ma con "<b>-o wide</b>"<br/>
+<img src="1 4.png" /></body></html>
