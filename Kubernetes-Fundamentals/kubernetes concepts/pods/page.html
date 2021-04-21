@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PODs</title>
+</head><body>PODs<br/>
+<br/>
+<br/>
+Prima di parlare dei PODs, chiariamo i concetti chiave:<br/>
+<img src="1.png" /><br/>
+<br/>
+A questo punto, supponiamo che un immagine sia stata developed,<br/>
+creata come "Docker Image", &nbsp;e che sia pullabile tramite Kubernetes da un repository<br/>
+come Docker Hub.<br/>
+<br/>
+Inoltre, assumiamo che il Kubernetes cluster è stato già setup e funziona.<br/>
+Può essere sia nel caso di un single node oppure più node (cluster).<br/>
+L'unica cosa importante: i servizi devono essere in <b>running state</b><hr/><hr/><br/>
+Come abbiamo discusso in sezioni precedenti,<br/>
+lo scopo di Kubernetes è di deployare un applicazione,<br/>
+come serie di container, su un set di macchine<br/>
+configurate come nodi di un cluster.<br/>
+<br/>
+<b>Kubernetes però non deploya direttamente</b><br/>
+i container direttamente sui Worked nodes.<br/>
+<br/>
+<br/>
+I Container sono <b><i>encapsulati</i></b>&nbsp;in un Kubernetes Object<br/>
+chiamato proprio <b>POD</b>.<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+<b><span style="color: #0000ff">Definizione di POD:</span></b>&nbsp;Singola instanza di un applicazione.<br/>
+IL POD è l'oggetto più piccolo che puoi creare in Kubernetes.<br/>
+<br/>
+Il caso di base più semplice:<ul><li>Singolo Node</li>
+<li>Singolo POD</li>
+<li>Singolo Container</li>
+<li>Singola app (all'interno del POD)</li>
+</ul>
+<br/>
+<br/>
+Se il numero di persone che richiede l'applicativo aumenta,<br/>
+devi aggiungere più instanze dell'applicazione.<br/>
+<br/>
+<b>Non possiamo avere due instanze dello stesso container, nello stesso POD.<br/>
+Assolutamente NO.<br/>
+<br/>
+</b>Cosa possiamo fare, invece:<ul><li>Creare un altro POD all'interno dello stesso Node</li>
+<li>Creare un altro POD in un altro Node</li>
+</ul>
+<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+<br/>
+In sintesi: I POD hanno una relazione uno-ad-uno con i container<br/>
+che stanno runnando al loro interno.<br/>
+<br/>
+Per scalare un'applicazione: <b>o crei più POD o di meno.</b><br/>
+<b>Non vai ad aggiungere più container dello stesso tipo nello stesso POD.<br/>
+<br/>
+</b><hr/><hr/><b></b><b><br/>
+</b>Cosa che si potrebbe fare è<b>&nbsp;aggiungere container diversi nello stesso POD.</b><br/>
+<br/>
+<b>Ad esempio: </b>Se un applicativo in Python necessita di un Container Helper particolare<br/>
+per alcuni task. In questo caso, possiamo creare un POD con Python e l'Helper.<br/>
+<b>Quando creiamo questo POD o lo distruggiamo, va su tutti e due.<br/>
+</b>Inoltre, essendo che hanno lo stesso spazio di rete, possono comunicare<br/>
+come localhost.<br/>
+<img src="1 4.png" /><br/>
+<br/>
+4:40</body></html>
