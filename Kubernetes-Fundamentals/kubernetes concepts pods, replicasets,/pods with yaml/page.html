@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PODs with YAML</title>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt">PODs with YAML</span></div></b><br/>
+<br/>
+<br/>
+Ora impareremo come deployare YAML files per Kubernetes.<br/>
+<br/>
+Kubernetes può usare YAML files per la creazione di:<ul><li>PODs</li>
+<li>Replicas</li>
+<li>Deployment Services etc.</li>
+</ul>
+<br/>
+<br/>
+Un file YAML per Kubernetes contiene 4 campi essenziali, da root level:<ul><li>API Version</li>
+<li>Kind</li>
+<li>Metadata</li>
+<li>Spec</li>
+</ul>
+<br/>
+Questi sono fields OBBLIGATORI da avere in un YAML file di configurazione per Kubernetes.<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+<b>API Version:</b><br/>
+Indica la <b>versione di Kubernetes API</b>&nbsp;usata per creare l'oggetto.<br/>
+E' importante per scegliere bene le opzioni dell'API.<br/>
+<img src="1 2.png" width="900" height="254" /><br/>
+<br/>
+<br/>
+<b>Kind:<br/>
+</b>Indica il<b>&nbsp;tipo di oggetto che vogliamo creare.</b><br/>
+Nel nostro caso, scegliamo di creare un POD.<br/>
+Altri elementi come "kind" sono quelli indicati nella tabella a destra.<br/>
+<img src="1 3.png" width="900" height="247" /><br/>
+<br/>
+<br/>
+<br/>
+<b>Metadata:</b><br/>
+Qui possiamo indicare <b>opzioni di configurazione</b>&nbsp;<b>da assegnare</b>&nbsp;all'oggetto da creare.<br/>
+I parametri da settare sono definiti da Kubernetes, ma i valori li scegliamo noi.<br/>
+<b>NB: Attenzione agli spazi: i figli necessitano di essere indentati! E' un dizionario!</b><br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+<b>Spec:</b><br/>
+Qui possiamo aggiungere altre <b>opzioni specifiche</b>&nbsp;per l'elemento da creare.<br/>
+<b>A seconda del tipo di Kind, esistono differenti specifiche possibili.</b><br/>
+Quindi va in base all'elemento che vogliamo creare!<br/>
+Anche qui, <b>Spec è un dizionario</b>.<br/>
+Ad esempio: possiamo avere il parametro "container", che è un Array.<br/>
+<img src="1 5.png" /><br/>
+<hr/><hr/><br/>
+Una volta creato il file YAML, possiamo usare il file di configurazione:<br/>
+<img src="1 6.png" /><br/>
+<br/>
+<br/>
+<br/>
+Con "get pods" possiamo vedere il nostro POD appena creato:<br/>
+<img src="1 7.png" /></body></html>
