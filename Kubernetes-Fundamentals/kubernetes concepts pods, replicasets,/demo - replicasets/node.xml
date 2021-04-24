@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Demo - ReplicaSets</string>
+  <key>nodeid</key><string>95c0eec2-8f11-4964-a400-0d8a8ac96b68</string>
+  <key>modified_time</key><integer>1619255502</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1619255481</integer>
+  <key>order</key><integer>5</integer>
+</dict>
+</node>
