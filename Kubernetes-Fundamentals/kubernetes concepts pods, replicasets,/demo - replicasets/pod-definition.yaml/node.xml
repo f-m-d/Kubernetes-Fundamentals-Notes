@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>pod-definition.yaml</string>
+  <key>nodeid</key><string>8effa070-21a6-4baf-ac29-2c3781ca945d</string>
+  <key>modified_time</key><integer>1619274425</integer>
+  <key>version</key><integer>6</integer>
+  <key>payload_filename</key><string>pod-definition.yaml</string>
+  <key>content_type</key><string>application/octet-stream</string>
+  <key>created_time</key><integer>1619274425</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>

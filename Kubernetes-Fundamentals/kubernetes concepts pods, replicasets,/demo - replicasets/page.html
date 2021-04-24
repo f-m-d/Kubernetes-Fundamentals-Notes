@@ -6,5 +6,48 @@
 </head><body>Demo - ReplicaSets<br/>
 <br/>
 <br/>
+NB: Il label da usare nel POD e nel Selector devono essere gli stessi!<br/>
+<img src="1.png" /><br/>
+<br/>
+Una volta creati i file di configurazione dei ReplicaSets e POD, creiamo il replicaset:<br/>
+<img src="1 2.png" width="900" height="58" /><br/>
+<br/>
+<br/>
+Possiamo ottenere lo stato dei ReplicaSet con <b>"kubectl get replicaset"</b><br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+Per ottenere informazioni del ReplicaSet, possiamo usare <b>"kubectl describe replicaset"</b><br/>
+<img src="1 6.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+Nel caso venissero creati POD con label uguali<br/>
+(nel senso: POD1.yaml e POD2.yaml con uno stesso label usato dal ReplicaSet)<br/>
+verrà immediatamente terminato il POD.<br/>
+<img src="1 7.png" /><br/>
+<br/>
+<br/>
+Se infatti ora controlliamo quanti POD abbiamo, ne abbiamo 3:<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+Se proviamo a cancellare un POD ora, il ReplicaSet ne crea un altro!<br/>
+<img src="1 5.png" width="900" height="176" /><br/>
+<br/>
+<br/>
+<br/>
+Ora, per modificare il numero di POD da creare:<br/>
+<b>NB:</b>&nbsp;Questo apre una schermata simile in VIM da editare su Linux ed in Notepad per Windows!<br/>
+Inoltre, mostra anche gli altri parametri settati in automatico.<br/>
+Qualsiasi cambiamento effettuato è immediatamente salvato ed applicato al cluster.<br/>
+<img src="1 8.png" width="900" height="37" /><br/>
+<br/>
+<img src="1 9.png" /><br/>
+<br/>
+<br/>
+Possiamo scalarli anche in modo temporaneo:<br/>
+<img src="1 10.png" width="900" height="262" /><br/>
+<br/>
+<br/>
 <br/>
 </body></html>
