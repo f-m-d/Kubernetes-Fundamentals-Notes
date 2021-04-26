@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Deplyment - Update and Rollback</title>
+</head><body>Deplyment - Update and Rollback<br/>
+<br/>
+<br/>
+Prima di tutto, cerchiamo di capire cosa sono il Versioning e Rollout.<br/>
+<br/>
+Quando per la prima volta crei un deployment, triggera un <b>Rollout</b>.<br/>
+Un nuovo Rollout crea una nuova<b>&nbsp;Deploy revision</b>.<br/>
+<img src="1.png" width="900" height="211" /><br/>
+<br/>
+Nel futuro, quando l'applicazione viene upgradata, ovvero quando<br/>
+la versione del container viene upgradata ad una nuova versione,<br/>
+un nuovo <b>Rollout</b>&nbsp;è triggered ed una nuova<b>&nbsp;Deployment Revision<br/>
+</b><b>è creata, chiamata "Revision 2"<br/>
+</b><img src="1 2.png" width="900" height="287" /><b><br/>
+</b><b><br/>
+<br/>
+</b>Questo ci permette di tener traccia dei nostri cambiamenti fatti al nostro Deployment,<br/>
+e permette di fare <b><i>Rollback </i></b>a precedenti versioni del deployment se necessario.<br/>
+<hr/><hr/><br/>
+<br/>
+Puoi vedere <b>lo stato del tuo Rollout,</b>&nbsp;tramite il comando "<b>kubectl rollout status [deploymentname]</b>".<br/>
+Per vedere le revision e la history del Rollout, &nbsp;possiamo usare "<b>kubectl rollout history [deploymentname]</b>"<br/>
+<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+Strategie di Deployment<br/>
+<br/>
+<br/>
+Esistono 2 tipi di strategie di Deployment.<br/>
+<br/>
+<br/>
+Esempio: hai 5 replica della tua WebApp, deployate.<br/>
+Un modo per upgradare il tutto sarebbe:<ul><li>&nbsp;Prima, distruggere tutte le instanze</li>
+<li>&nbsp;Solo successivamente, creare tutte le instanze nuove.</li>
+</ul>
+<br/>
+In questo modo però sta tra la cancellazione e creazione delle instanze:<br/>
+l'applicazione va down e non è accessibile agli utenti!<br/>
+<br/>
+Questa strategia si chiama <b>"Recreate Strategy"</b>&nbsp;e per fortuna non è quella di default.<br/>
+<img src="1 4.png" width="900" height="247" /><br/>
+&nbsp;<br/>
+<br/>
+Un'altra strategia è quella di rimuovere un instanza e di creare immediatamente<br/>
+la sua versione upgradata: in questo modo l'applicazione non va down<br/>
+e l'upgrade sembra non visibile al mondo esterno.<br/>
+Questa si chiama "<b>Rolling Update</b>"<br/>
+<img src="1 5.png" width="900" height="120" /><br/>
+<br/>
+<br/>
+<br/>
+Se non specifichi nulla, di base ti rende come "Rolling Update".<br/>
+In altre parole: <b>Rolling Update</b>&nbsp;è la Deploy Strategy di default.<br/>
+<br/>
+<hr/><hr/><br/>
+Adesso, come facciamo upgrade sul nostro Deployment?<br/>
+Per effettuare delle modifiche, ci basta modificare il YAML file del Deployment:<br/>
+<img src="1 6.png" /><br/>
+<br/>
+<img src="1 7.png" /><br/>
+<br/>
+<br/>
+<br/>
+Ma esiste anche un altro modo per fare la stessa cosa.<br/>
+Possiamo usare il comando "set image" per updatare l'immagine della nostra applicazione.<br/>
+NB: Il file YAML non verrà toccato, quindi stati attento se riusi il YAML file!<br/>
+<img src="1 8.png" width="900" height="214" /><br/>
+<br/>
+<br/>
+<br/>
+Possiamo notare le differenze tra Recreate e RollingUpdate qui:<br/>
+<img src="1 9.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+Cerchiamo di capire come funziona il Deployment e come upgrada.<br/>
+Quando un nuovo Deployment è creato (ad esempio: per creare 5 replicas):<br/>
+<ul><li>&nbsp;Crea un ReplicaSets in modo automatico</li>
+<li>&nbsp;Il ReplicaSets crea i 5 PODs </li>
+</ul>
+<br/>
+<b>Quando deve upgradare, semplicemente crea un nuovo ReplicaSet<br/>
+</b>e inizia a deployare i POD lì, cancellando i PODs.<br/>
+Infatti, col comando "kubectl get replicasets" possiamo vedere<br/>
+il nuovo ReplicaSet con 5 PODs e il vecchio con 0 PODs.<br/>
+&nbsp;<img src="1 10.png" width="900" height="352" /><br/>
+<br/>
+<br/>
+<br/>
+Ora, supponiamo che qualcosa non vada nel nuovo upgrade e che vogliamo<br/>
+tornare ad una versione precedente, ovvero fare Rollback.<br/>
+<br/>
+Per fare Rollback, basta il comando "kubectl rollout undo [deploymentname]"<br/>
+<img src="1 12.png" /><br/>
+<br/>
+Semplicemente: distrugge i POD nel nuovo ReplicaSet<br/>
+e li ricrea nel vecchio ReplicaSet!<br/>
+<img src="1 11.png" /><br/>
+<hr/><hr/><br/>
+<img src="1 13.png" /><br/>
+</body></html>

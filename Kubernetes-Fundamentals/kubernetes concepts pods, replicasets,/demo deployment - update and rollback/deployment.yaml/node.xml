@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>deployment.yaml</string>
+  <key>nodeid</key><string>9c85a0b0-4c8f-49d6-9ab2-93b231c4d3f6</string>
+  <key>modified_time</key><integer>1619429398</integer>
+  <key>version</key><integer>6</integer>
+  <key>payload_filename</key><string>deployment.yaml</string>
+  <key>content_type</key><string>application/octet-stream</string>
+  <key>created_time</key><integer>1619429398</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>

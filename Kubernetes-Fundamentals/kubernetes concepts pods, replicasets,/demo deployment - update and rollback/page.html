@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Demo Deployment - Update and Rollback</title>
+</head><body>Demo Deployment - Update and Rollback<br/>
+<br/>
+<br/>
+<br/>
+Per primo punto, creiamo un YAML file del Deployment:<br/>
+NB: Dovrebbe essere disponibile in allegato!<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+Creiamo il nostro deployment:<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+Ora possiamo controllare lo status del nostro rollout:<br/>
+nel nostro caso è il primo di quando è stato creato il Deployment.<br/>
+<img src="1 3.png" width="900" height="64" /><br/>
+<br/>
+<br/>
+Nel caso stesse ancora deployando, se effettuiamo abbastanza in fretta<br/>
+il comando precedente, possiamo vedere che sta creando in modalità "Rolling" i PODs!<br/>
+<img src="1 4.png" width="900" height="314" /><br/>
+<br/>
+Con il comando "kubectl rollout history" possiamo vedere la lista dei rollout effettuati:<br/>
+vi è solo quello di base della creazione del Deployment.<br/>
+<img src="1 5.png" width="900" height="108" /><br/>
+<br/>
+<br/>
+<br/>
+La causa non è stata scritta.<br/>
+Infatti, dovevamo aggiungere l'opzione di --record quando creavamo il deployment!<br/>
+<img src="1 6.png" /><br/>
+<img src="1 7.png" /><br/>
+<br/>
+Se guardiamo nella descrizione del Deployment, possiamo notare nelle annotazioni<br/>
+il nostro comando di creazione.<br/>
+<img src="1 9.png" /><br/>
+<br/>
+<br/>
+Ora, ad esempio: facciamo qualche cambiamento.<br/>
+NB: Sempre necessaria l'opzione di --record!<br/>
+<img src="1 8.png" /><br/>
+<br/>
+<br/>
+Cambiamo la versione di nginx:<br/>
+NB: Questa è la Documentation di DockerHub!<br/>
+<img src="1 10.png" /><br/>
+<br/>
+<img src="2.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Ora se usiamo "kubectl describe deployment", possiamo notare<br/>
+le creazioni e distruzioni dei PODs.<br/>
+<img src="1 11.png" width="900" height="184" /><br/>
+<br/>
+<br/>
+Altro modo per cambiare l'immagine, senza cambiare il YAML, è tramite il comando set:<br/>
+<img src="1 12.png" width="900" height="63" /><br/>
+<br/>
+<br/>
+Ora se eseguiamo il comando "kubectl rollout history", notiamo quali cambiamenti<br/>
+sono stati effettuati!<br/>
+<img src="1 13.png" width="900" height="157" /><br/>
+<br/>
+<br/>
+Se abbiamo necessità di fare Rollback, possiamo usare "kubectl rollback undo" per tornare<br/>
+ad una versione precedente funzionante (nel nostro caso: dalla 3 alla 2)<br/>
+<img src="1 14.png" width="900" height="212" /><br/>
+<br/>
+<br/>
+Ora se notiamo la Revision 2 è svanita! Ora è diventata la Revision 4.<br/>
+<img src="1 15.png" width="900" height="160" /><br/>
+<br/>
+<br/>
+<br/>
+Comodo quando si sbaglia qualcosa, come una versione dell'immagine!<br/>
+<img src="1 16.png" width="900" height="316" /><br/>
+<br/>
+</body></html>
