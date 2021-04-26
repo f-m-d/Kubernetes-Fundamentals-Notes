@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Networking in Kubernetes</title>
+</head><body>Networking in Kubernetes<br/>
+<br/>
+<br/>
+<br/>
+Partiamo da un qualcosa di semplice.<br/>
+Partiamo da un semplice nodo, con un indirizzo IP,<br/>
+con un singolo POD.<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+NB: Se usi minikube, stiamo parlando dell'indirizzo IP della VM!<br/>
+Qui l'esempio in caso di VM con IP separato dalla macchina Host.<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+Per essere più specifici ora: <b>un Indirizzo IP è assegnato ad ogni singolo POD</b>.<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+<br/>
+Ma come fanno i POD ad ottenere un loro indirizzo IP?<br/>
+Quando Kubernetes è inizialmente configurato, crea <b>una rete interna locale</b>&nbsp;(privata)<br/>
+con l'indirizzo di rete (nel nostro caso: 10.244.0.0)<br/>
+<b>Tutti i POD sono attaccati a questa rete.</b><br/>
+Quando deploy altri POD, <b>hanno un indirizzo IP differente, assegnato da questa rete.<br/>
+</b><img src="1 4.png" /><b><br/>
+</b><b><br/>
+<br/>
+</b>I POD possono comunicare tramite questi IP, ma non è una buona idea:<br/>
+questo perché <b>gli indirizzi cambiano quando i POD sono ricreati!<br/>
+</b><b></b><hr/><hr/><b></b><b><br/>
+E nel caso di più nodi in un cluster?<br/>
+</b>Nel nostro caso, differenti nodi hanno differenti indirizzi IP.<br/>
+Ma la cosa "straordinaria" è che anche su nodi differenti,<br/>
+i POD hanno indirizzi della stessa rete interna.<br/>
+<br/>
+Questo è un problema: un POD potrebbe avere un IP<br/>
+uguale ad un altro POD!<br/>
+<b>Quindi così non funziona.</b><br/>
+<img src="1 5.png" /><br/>
+<br/>
+<br/>
+Di base, Kubernetes non fa nessun setup per correggere questo "problema".<br/>
+Kubernetes aspetta che siamo noi a configurare tutte queste cose.<br/>
+Ecco i requisiti che Kubernetes si aspetta da noi:<br/>
+<img src="1 6.png" /><br/>
+<br/>
+<br/>
+Per fortuna, esistono delle soluzioni prebuilt come:<ul><li>Cisco ACI Network</li>
+<li>Big Cloud Fabric</li>
+<li>Cilium</li>
+<li>Flannel</li>
+<li>VMWare NSX </li>
+<li>Calico</li>
+</ul>
+<br/>
+In base a dove deploy Kubernetes, puoi scegliere una di queste soluzioni.<br/>
+<br/>
+<b>Esempio:</b><br/>
+Se stai creando un Kubernetes Cluster da scratch, puoi usare Calico, Flannel etc.<br/>
+Se sei su un VM Enviroment, VMWare NSX può essere un ottima soluzione.<br/>
+Il lab online del corso usa "Weave Net".<br/>
+<img src="1 7.png" width="900" height="386" /><br/>
+<br/>
+<br/>
+<br/>
+In questo modo, possiamo far connettere tutti con i criteri giusti!<br/>
+<img src="1 8.png" width="900" height="425" /></body></html>
