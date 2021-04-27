@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Services - NodePort</title>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff">Services - NodePort</span></span></div></b><br/>
+<br/>
+<br/>
+I Servizi in Kubernetes permettono la comunicazione<br/>
+tra varie componenti, interne o esterne, di un applicazione.<br/>
+<br/>
+I Kubernetes Services permettono di collegare le applicazioni<br/>
+con altre applicazioni o con degli utenti.<br/>
+<br/>
+<b>Ad esempio:</b>&nbsp;La nostra applicazione potrebbe avere<br/>
+gruppi di POD, che runnano diverse sezioni:<br/>
+frontend, backend, load to user, external data source etc.<br/>
+<br/>
+Sono i Servizi che permettono la connettività verso l'End-User,<br/>
+Backend-Frontend PODs e External Data Sources.<br/>
+<br/>
+Questo ci permette anche il "loose coupling" tra microservizi<br/>
+nella nostra applicazione<br/>
+<img src="1.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+Diamo un'occhiata ad un use-case di un Servizio.<br/>
+Abbiamo già parlato dei POD che comunicano tramite una rete interna.<br/>
+<br/>
+Vediamo altri aspetti del Networking.<br/>
+Parliamo dell'External Communication.<br/>
+<br/>
+<b>Esempio:</b>&nbsp;Abbiamo deployato i nostri POD, con una webapp<br/>
+che runna al loro interno.<br/>
+Come fa un utente esterno ad accedere alla Web Page?<br/>
+<br/>
+Diamo prima un occhiata al setup:<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+Supponendo che io sia su una rete interna al nodo:<br/>
+non posso comunque accedere all'IP del POD!<br/>
+<br/>
+Dal Nodo stesso al POD possiamo comunicare:<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+Quindi: come possiamo esporre la pagina Web?<br/>
+Tramite la creazione di un Service.<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+Un Kubernetes <b>Service</b>&nbsp;è un oggetto proprio come i POD, ReplicaSet e Deployment.<br/>
+Uno degli obiettivi del <b>Service</b>&nbsp;è di <b>ascoltare su una porta</b>&nbsp;del Node<br/>
+e di fare <b>forwarding delle richieste su quella porta </b>su una porta del POD,<br/>
+capace di darci il servizio scelto.<br/>
+Questo tipo di servizio è noto come <b>NodePortService</b>.<br/>
+Esistono anche altri tipi di servizi differenti.<br/>
+<hr/><hr/><br/>
+<img src="1 5.png" width="900" height="344" /><br/>
+<br/>
+<b>NodePort Service:</b><br/>
+Permette di rendere accessibile un POD all'esterno,<br/>
+tramite l'utilizzo di una porta sul Node.<br/>
+<br/>
+<b>ClusterIP Service:</b><br/>
+Serve a creare un Virtual IP all'interno del Cluster,<br/>
+per permettere la comunicazione di diversi servizi<br/>
+come E.G. Frontend to Backend servers.<br/>
+<br/>
+<b>LoadBalancer Service:</b><br/>
+Provvedde un Load Balancer per la nostra applicazione,<br/>
+in Supported Cloud Providers.<br/>
+Esempio: per permettere la load balance su differenti server front-end.<br/>
+<hr/><hr/><br/>
+Concentriamoci sul <b>NodePort</b>&nbsp;Service.<br/>
+<br/>
+<img src="1 6.png" /><br/>
+<br/>
+<br/>
+Da notare come i nomi delle port sono definite dal punto di vista del Service.<br/>
+<b>TargetPort</b>&nbsp;dove vengono forwardate le richieste,<br/>
+<b>Port</b>&nbsp;per indicare la propria Porta di forware verso il POD,<br/>
+<b>NodePort</b>&nbsp;da dove ascolta le richieste. <br/>
+<br/>
+E' possibile considerare il servizio cone un <i>Virtual Server</i>&nbsp;dentro il Node.<br/>
+Dentro al Cluster, possiede il proprio indirizzo IP (detto <b>ClusterIP</b>&nbsp;del Service),<br/>
+nel nostro caso è <b>10.106.1.12.<br/>
+</b><b><br/>
+Diamo una breve accortenza alla NodePort.<br/>
+</b>Questa può avere range di porte (di default) da 30000 a 32767.<br/>
+<br/>
+<hr/><hr/><br/>
+<b>Vediamo come creare un Service tramite un YAML:</b><br/>
+Ha tutti i campi principali a livello di root e <b>non necessita di per forza di "labels"</b>.<br/>
+La parte di <b>differenza molto importante è la sezione "spec:"<br/>
+</b><img src="1 7.png" /><b><br/>
+</b><b><br/>
+Type:<br/>
+</b>Specifica il tipo di Service che stiamo creando.<br/>
+Qui possiamo mettere NodePort, ClusterIP o LoadBalancer.<br/>
+<br/>
+<b>Ports:</b><br/>
+Contiene dei sotto elementi, ovvero le porte da definire come<ul><li>la <b>targetPort</b>&nbsp;(del POD)</li>
+<li>la <b>port</b>&nbsp;(del Service)</li>
+<li>la <b>nodePort</b>&nbsp;(del Node).</li>
+</ul>
+<br/>
+<b>Piccola Accortenza: Ports è un Array. Attenzione al trattino.</b><br/>
+L'unico valore obbligatorio da definire è il valore "<b>port</b>".<br/>
+Se non provvedi la <b>targetPort</b>, si assume che è la stessa di <b>port</b>.<br/>
+Se non provvedi la nodePort, verrà scelta automaticamente una aperta nel range (E.G. una tra 30000-32767)<br/>
+<b>Inoltre, essendo un array, possiamo mappare anche più porte nello stesso servizio!<br/>
+<br/>
+<br/>
+<br/>
+</b><b>Ma qualcosa manca: </b>niente è connesso al servizio sul POD<b>.<br/>
+</b>Abbiamo specificato le porte ma non su <b>QUALE POD</b>.<br/>
+Ce ne potrebbero essere migliaia sulla porta scelta, per dire.<br/>
+Per risolvere questo problema: useremo <b>Labels</b>&nbsp;e <b>Selectors</b>.<br/>
+<br/>
+Basta inserire <b>ESATTAMENTE</b>&nbsp;i label usati per un determinato POD.<br/>
+<img src="1 9.png" /><br/>
+<br/>
+<br/>
+Ora possiamo usare il comando "kubectl create -f" per creare il Service.<br/>
+Per vedere i service, ci basta usare il comando "kubectl get services"<br/>
+Infine, possiamo effettuare le nostre operazioni sul servizio esposto ad un certo <b>IP:nodePort</b><br/>
+<img src="1 8.png" /><br/>
+<br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+Che succede nel caso avessimo più POD con lo stesso Label?<br/>
+Esempio: Abbiamo più POD con lo stesso Container ed Applicativo.<br/>
+<img src="1 10.png" /><br/>
+<br/>
+<br/>
+Qui succede che il Service <b>seleziona TUTTI I PODs</b>&nbsp;per forwardare loro le richieste dalla nodePort.<br/>
+Non devi fare nessuna configurazione, per far si che questo succeda.<br/>
+Per bilanciare il load, utilizza un <b>RandomAlgorithm</b>&nbsp;per distribuire il carico.<br/>
+<br/>
+Nel nostro caso, il <b>Service</b>&nbsp;si comporta come un built-in Load Balancer,<br/>
+per distribuire il peso attraverso tutti i PODs.<br/>
+<img src="1 11.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+Vediamo cosa succede se i PODs sono distribuiti attraverso più nodi:<br/>
+<img src="1 12.png" /><br/>
+<br/>
+<br/>
+Nel nostro caso, Kubernetes crea un <b>Service che contiene tutti i Node<br/>
+</b><b>nel Cluster</b>&nbsp;e mappa le stesse targetPort e nodePort per tutti i nodi del Cluster.<br/>
+<br/>
+In questo modo, puoi accedere al Service usando l'IP del nodo e la nodePort scelta:<br/>
+<img src="1 13.png" /><br/>
+<br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+Sintesi: nei casi di:<ul><li>Single POD, Single Node</li>
+<li>Multiple PODs, Single Node</li>
+<li>Multiple PODs, Multiple Nodes</li>
+</ul>
+<br/>
+<br/>
+Il Service si crea sempre in un modo utile ad essere usato.<br/>
+<b>Quando i PODs sono rimossi o update, il Service viene automaticamente aggiornato,</b><br/>
+rendendo altamente flessibile ed adattivo.<br/>
+<b>Generalmente, una volta creato, non va configurato o va poco configurato.</b><br/>
+</body></html>
