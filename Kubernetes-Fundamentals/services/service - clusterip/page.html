@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Service - ClusterIP</title>
+</head><body><b><div style="text-align: center"><span style="color: #0000ff"><span style="font-size: 31pt">Service - ClusterIP</span></span></div></b><br/>
+<br/>
+<br/>
+Generalmente, una full-stack web application possiede diversi PODs,<br/>
+dove ognuno possiede una propria parte dell'applicazione.<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+Ogni servizio ha bisogno di comunicare con altri servizi.<br/>
+Il Fronte-end col back e il back con Redis o i DB.<br/>
+<br/>
+Quindi: come connettiamo i POD?<br/>
+Ogni POD ha un suo indirizzo IP, come possiamo vedere:<br/>
+<img src="1 2.png" /><br/>
+<br/>
+Il problema è che ogni POD ha un proprio IP e potrebbe essere<br/>
+distrutto e ricostruito, con un altro IP, in qualsiasi momento.<br/>
+Per questo, non puoi affidarti a questi indirizzi IP per la comunicazione interna.<br/>
+<br/>
+<br/>
+Inoltre: se necessito un POD del Back da Front, quale dei 3 è scelto?<br/>
+Kubernetes offre un <b>Service</b>&nbsp;per raggruppare questi PODs e contattarli tramite un interfaccia.<br/>
+Il POD scelto, in caso di richiesta, viene scelto in modo casuale.<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+Questo ci permette di deployare in modo semplice <b>un applicazione<br/>
+</b><b>basata su microservizi in Kubernetes</b>, sul cluster.<br/>
+<br/>
+Adesso ogni layer può scalare o muoversi come vuole, senza impattare<br/>
+la comunicazione tra gli altri servizi.<br/>
+<br/>
+<br/>
+<b>Ogni Service ha un IP assegnato all'interno del cluster e questo<br/>
+è il nome usato da altre path per accedere al servizio.<br/>
+</b><hr/><hr/><b></b><b><br/>
+</b>NB: Quando dichiari un Service, se non specifici il "type", lo considererà come un<b>&nbsp;ClusterIP.</b><br/>
+E' il tipo di service di default, se non lo specifichi!<br/>
+<br/>
+Dobbiamo dargli solo un nome, porte target e di base, ed i selector<br/>
+quelli del POD da scegliere!<br/>
+&nbsp;<img src="1 4.png" width="900" height="417" /><br/>
+<br/>
+<img src="1 5.png" /><br/>
+<br/>
+<br/>
+</body></html>

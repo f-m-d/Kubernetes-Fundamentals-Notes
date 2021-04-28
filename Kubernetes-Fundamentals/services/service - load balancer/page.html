@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Service - Load Balancer</title>
+</head><body><b><div style="text-align: center"><span style="color: #0000ff"><span style="font-size: 31pt">Service - Load Balancer<br/>
+</span></span></div></b><br/>
+<br/>
+Esiste un altro tipo di Service chiamato <b>Load Balancer</b>.<br/>
+<br/>
+Fino ad ora, abbiamo visto:<br/>
+<b>NodePort</b>, per esporre i servizi al mondo esterno, su un Worker Node.<br/>
+<br/>
+<br/>
+Diamo un occhiata ad una semplice app di esempio:<br/>
+<b>voting-app</b>&nbsp;e <b>resulting-app</b>.<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+Ora sappiamo che tutti questi PODs sono hostati su differenti nodi.<br/>
+Per renderli disponibili questi servizi, usiamo dei <b>NodePort Service</b>.<br/>
+<img src="1 2.png" width="900" height="281" /><br/>
+<br/>
+<br/>
+I NodePort, in questo caso, ci aiutano a distribuire il carico su differenti nodi.<br/>
+<b>Ma il problema è:</b>&nbsp;che URL diamo al nostro utente finale?<br/>
+Potremmo dare una di qualsiasi nodo, ma non è una buona idea da ricordare.<br/>
+<img src="1 3.png" width="900" height="375" /><br/>
+<br/>
+<br/>
+<br/>
+Ma l'utente vuole semplicemente un unica URL per accedere al servizio:<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<b>Una soluzione è:</b><br/>
+Creare una nuova VM per il Load Balancer ed installare un Load Balancer sopra,<br/>
+come ngproxy or nginx.<br/>
+Poi bisognerebbe configurare il Load Balancer per il routing dei nodi sottostanti.<br/>
+Ora, settare tutto questo Load Balancing esterno può essere time consuming e complicato.<br/>
+<img src="1 5.png" width="900" height="387" /><br/>
+<br/>
+<br/>
+Tuttavia, se sono su una Cloud Platform come AWS, Google Cloud o Azure, <b>posso sfruttare<br/>
+</b><b>il Load Balancer di base di quella piattaforma</b>!<br/>
+Basta creare un Service con tipo <b>LoadBalancer</b>&nbsp;ed il gioco è fatto.<br/>
+<img src="1 6.png" width="900" height="456" /><br/>
+<br/>
+<br/>
+NB: In un unsupported environment, come VirtualBox,<br/>
+avrebbe lo stesso effetto di settare un NodePort,<br/>
+dove i servizi sono esposti su una high end note.<br/>
+Questo non farà nessun tipo di <b>Load Balancer configuration</b>.</body></html>

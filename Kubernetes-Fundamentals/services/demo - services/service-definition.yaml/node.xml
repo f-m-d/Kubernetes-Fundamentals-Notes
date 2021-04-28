@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>service-definition.yaml</string>
+  <key>nodeid</key><string>dff91475-ad81-4f60-9b6a-c4faf637d759</string>
+  <key>modified_time</key><integer>1619601413</integer>
+  <key>version</key><integer>6</integer>
+  <key>payload_filename</key><string>service-definition.yaml</string>
+  <key>content_type</key><string>application/octet-stream</string>
+  <key>created_time</key><integer>1619601413</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>

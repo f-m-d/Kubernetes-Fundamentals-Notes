@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Demo - Services</title>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt"><span style="color: #0000ff">Demo - Services</span></span></div></b><br/>
+<br/>
+<br/>
+<br/>
+Guardando ciò che abbiamo fatto in precedenza, dovremmo avere dei POD già attivi:<br/>
+<img src="1.png" width="900" height="292" /><br/>
+<br/>
+<br/>
+Ora, per far si che possiamo far accedere un utente a questa applicazione,<br/>
+dobbiamo creare un <b>Service</b>.<br/>
+<b>NB: Selezioniamo il selector con lo stesso nome dell'app!</b><br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+Ora se controlliamo i servizi, abbiamo il nostro NodePort!<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<b>NB: Il Cluster IP è usato UNICAMENTE per trovare il servizio tramite IP nel cluster,<br/>
+per raggiungere il servizio da fuori SERVE L'IP DELLA MACCHINA NODE!<br/>
+</b><br/>
+Nel caso usiamo Minikube, è possibile usare il comando "<b>minikube service [servicename] url"</b><br/>
+per ottenere l'URL del Node!<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+<img src="1 5.png" /><br/>
+</body></html>
