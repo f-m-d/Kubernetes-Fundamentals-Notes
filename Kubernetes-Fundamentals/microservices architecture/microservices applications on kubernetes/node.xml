@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Microservices Applications on Kubernetes</string>
+  <key>nodeid</key><string>d599b54e-b84d-4e3d-b8bd-6ed38ad6a4bc</string>
+  <key>modified_time</key><integer>1619773771</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1619772900</integer>
+  <key>order</key><integer>1</integer>
+</dict>
+</node>
