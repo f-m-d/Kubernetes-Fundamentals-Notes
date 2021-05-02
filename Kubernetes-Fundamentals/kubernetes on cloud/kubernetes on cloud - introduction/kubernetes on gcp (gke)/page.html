@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Kubernetes on GCP (GKE)</title>
+</head><body>Kubernetes on GCP (GKE)<br/>
+<br/>
+<br/>
+Deployeremo su Google Kubernetes Engine (GKE).<br/>
+<img src="1.png" width="900" height="435" /><br/>
+<br/>
+<br/>
+Ora che siamo nella Dashboard:<br/>
+<img src="1 2.png" /><br/>
+<br/>
+Creiamo un nuovo Cluster:<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+<br/>
+Ora ci dirà di settare le opzioni di base:<br/>
+Cambia solo il nome e puoi lasciare le opzioni di base per il resto!<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+NB: Per il resto puoi modificare anche altre cose!<br/>
+<img src="1 5.png" /><br/>
+<br/>
+<br/>
+Anyway, aspettiamo che si completa l'operazione ci creazione:<br/>
+<img src="1 6.png" /><br/>
+<br/>
+Per connetterci al nostro cluster, possiamo semplicemente<br/>
+cliccare su "Connect" e fare "Run in Cloud Shell"<br/>
+<img src="1 7.png" /><br/>
+<img src="1 8.png" /><br/>
+<br/>
+<img src="1 9.png" /><br/>
+<br/>
+<br/>
+Il Cloud possiede già tools come kubectl e possiamo vedere i nodi:<br/>
+<img src="1 10.png" /><br/>
+<br/>
+Scarichiamo il nostro progetto coi YAML:<br/>
+<img src="1 12.png" /><br/>
+<img src="1 13.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+Alcune cose da fare: Cambiare il tipo di NodePort a LoadBalancer!<br/>
+<img src="1 11.png" /><br/>
+<br/>
+<img src="1 14.png" /><br/>
+<br/>
+<img src="1 15.png" /><br/>
+<br/>
+Controllando nella dashboard, dobbiamo notare che i service usano il LoadBalancer esterno!<br/>
+<img src="1 16.png" /><br/>
+<br/>
+<br/>
+</body></html>

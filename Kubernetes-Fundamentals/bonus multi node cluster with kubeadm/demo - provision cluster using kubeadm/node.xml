@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Demo - Provision cluster using Kubeadm</string>
+  <key>nodeid</key><string>211a25f0-aad9-4890-bb67-7ab733cd0e22</string>
+  <key>modified_time</key><integer>1619984400</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1619981896</integer>
+  <key>order</key><integer>3</integer>
+</dict>
+</node>

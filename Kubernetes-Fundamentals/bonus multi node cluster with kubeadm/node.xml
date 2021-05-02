@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>BONUS: Multi node cluster with Kubeadm</string>
+  <key>nodeid</key><string>ee2de044-5879-4f06-96a3-b374e07a1669</string>
+  <key>modified_time</key><integer>1619979740</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1619979740</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>10</integer>
+  <key>info_sort</key><string>order</string>
+  <key>icon</key><string>star.png</string>
+</dict>
+</node>

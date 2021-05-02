@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Kubernetes on GCP (GKE)</string>
+  <key>nodeid</key><string>2c840822-9985-404c-8c31-482dcbb0c307</string>
+  <key>modified_time</key><integer>1619977199</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1619973765</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>

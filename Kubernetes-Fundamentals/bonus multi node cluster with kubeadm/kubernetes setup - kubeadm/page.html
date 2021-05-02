@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Kubernetes Setup - Kubeadm</title>
+</head><body>Kubernetes Setup - Kubeadm<br/>
+<br/>
+<br/>
+Kubernetes è formato da differenti components.<br/>
+Modificare i config file e certificati è una palla, ammettiamolo.<br/>
+Kubeadm si prende cura di fare questi task!<br/>
+<img src="1.png" width="900" height="382" /><br/>
+<br/>
+<br/>
+Step per installare Kubeadm:<br/>
+1) Avere differenti nodi o VM per settare il cluster.<br/>
+2) Settare un nodo come Master e gli altri come Worker Nodes.<br/>
+3) Installare un Container Runtime sugli host (E.G. Docker)<br/>
+4) Installare Kubeadm su ogni nodo.<br/>
+5) Initialize il Master Node. Questo installa tutte le components sul Master Node.<br/>
+6) Per la connessione dei nodi, non basta quella normale. Va configurata una rete chiamata "POD Network".<br/>
+7) Ultimo step è di far joinare i Worked Node sotto nome del Master Node.</body></html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Demo - Provision cluster using Kubeadm</title>
+</head><body>Demo - Provision cluster using Kubeadm<br/>
+<br/>
+Link:<br/>
+<a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/">https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/<br/>
+</a><br/>
+<br/>
+<br/>
+Su ogni nodo, sempre seguendo la linea:<br/>
+dobbiamo configurare IPTABLES.<br/>
+Prima controlliamo se vi è il netfiler e lo attiviamo se non vi è.<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+Sempre su tutti i nodi: carichiamo l'IPTABLE:<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+Link: <a href="https://docs.docker.com/engine/install/#server">https://docs.docker.com/engine/install/#server</a><br/>
+Sempre su tutti i nodi:<br/>
+Prossimo step: installare il Runtime Container, nel nostro caso Docker.<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<img src="1 5.png" /><br/>
+<br/>
+<img src="1 6.png" /><br/>
+<br/>
+<img src="1 7.png" /><br/>
+<br/>
+<img src="1 8.png" /><br/>
+<hr/><hr/><br/>
+Ora controlliamo lo status di Docker:<br/>
+<img src="1 9.png" /><br/>
+<br/>
+<br/>
+Installiamo questi tools su tutte le macchine:<br/>
+<img src="1 10.png" /><br/>
+<br/>
+<img src="1 11.png" /><br/>
+<br/>
+<br/>
+<br/>
+ORa va configurato il cdriver usato da kubelet, sul control-panel node.<br/>
+Se usi Docker, puoi saltare questa parte.<br/>
+<br/>
+<br/>
+Ora settiamo kubeadm:<br/>
+<a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/">https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/<br/>
+</a><br/>
+<br/>
+Come primo punto: inizializziamo il control pane node.<br/>
+Passiamo direttamente alla parte dove aggiungiamo la "POD Network".<br/>
+Qui dobbiamo definire l'IP Range da usare per i POD.<br/>
+<img src="1 12.png" /><br/>
+<br/>
+Nel nostro caso, useremo Weave Net.<br/>
+Il 3 step se usiamo docker è saltabile.<br/>
+<br/>
+<br/>
+SOLO SUL WORKER NODE.<br/>
+Ora settiamo la rete dei POD col primo parametro,<br/>
+ed un indirizzo statico del Master Node col secondo.<br/>
+<img src="1 14.png" width="900" height="225" /><br/>
+<br/>
+<img src="1 13.png" width="900" height="53" /><br/>
+<br/>
+<br/>
+Una volta installata, ci chiederà di fare delle azioni come regular user:<br/>
+<img src="1 15.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+Abbiamo deciso di usare Weave Net.<br/>
+Non ci resta che far accedere i Worker Node sotto il Master Node.<br/>
+<br/>
+Eseguiamo questo sul master:<br/>
+<img src="1 16.png" width="900" height="129" /><br/>
+<br/>
+<br/>
+Scegliamo la sezione di Weave Net.<br/>
+<img src="1 17.png" /><br/>
+<br/>
+<img src="1 18.png" width="900" height="170" /><br/>
+<br/>
+<br/>
+<br/>
+Copiamo questo comando anche sugli altri nodi:<br/>
+<img src="1 19.png" /><br/>
+<br/>
+<br/>
+<br/>
+</body></html>

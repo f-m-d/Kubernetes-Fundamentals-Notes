@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Kubernetes on Azure (AKS)</string>
+  <key>nodeid</key><string>f2d95d4d-9778-46bd-ab55-7000259fc240</string>
+  <key>modified_time</key><integer>1619979675</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1619978219</integer>
+  <key>order</key><integer>3</integer>
+</dict>
+</node>
