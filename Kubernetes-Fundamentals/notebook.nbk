@@ -63,31 +63,28 @@
         </array>
         <key>windows</key><dict>
             <key>ids</key><dict>
-                <key>108373d4-50cd-4d79-abe1-daa287658308</key><dict>
-                    <key>viewerid</key><string>c596b68c-c05b-4390-a464-ae289c64ae15</string>
+                <key>c45fdc66-ae11-4c2e-a0a1-e39301bcb0ef</key><dict>
+                    <key>viewerid</key><string>f5efd85d-b1fa-4d1e-80f9-6c060181d769</string>
                     <key>viewer_type</key><string>tabbed_viewer</string>
                 </dict>
             </dict>
         </dict>
         <key>viewers</key><dict>
             <key>ids</key><dict>
-                <key>aae3c4f4-7d9e-4ae2-a576-1730d12c0561</key><dict>
+                <key>68f69729-eeff-4030-94fc-487d57f7dd07</key><dict>
                     <key>selected_treeview_nodes</key><array>
-                        <string>ee2de044-5879-4f06-96a3-b374e07a1669</string>
                     </array>
                     <key>selected_listview_nodes</key><array>
-                        <string>211a25f0-aad9-4890-bb67-7ab733cd0e22</string>
                     </array>
                 </dict>
-                <key>c596b68c-c05b-4390-a464-ae289c64ae15</key><dict>
+                <key>f5efd85d-b1fa-4d1e-80f9-6c060181d769</key><dict>
                     <key>tabs</key><array>
                         <dict>
-                            <key>viewerid</key><string>aae3c4f4-7d9e-4ae2-a576-1730d12c0561</string>
+                            <key>viewerid</key><string>68f69729-eeff-4030-94fc-487d57f7dd07</string>
                             <key>viewer_type</key><string>three_pane_viewer</string>
                             <key>name</key><string></string>
                         </dict>
                     </array>
-                    <key>current_viewer</key><string>aae3c4f4-7d9e-4ae2-a576-1730d12c0561</string>
                 </dict>
             </dict>
         </dict>
